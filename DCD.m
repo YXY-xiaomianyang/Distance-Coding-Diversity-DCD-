@@ -14,7 +14,7 @@ info = geotiffinfo('E:\application_test\plant\dcd_arrange\16_3_km_DCD_S.tif');
 a=floor(mean(im,3));
 b=max(a,[],'all');
 c=min(a,[],'all');
-im = floor(a/((b-c)/bin)); %normalization
+im = floor(a/((b-c)/bin)); 
 
 
 %% DCD calculating
