@@ -1,1 +1,1 @@
-This is the matlab code of calculating the DCD feature image for an image. 
+We have provided Python, matlab and IDL code to calculate the DCD of an image. 
