@@ -1,4 +1,5 @@
-
+% Description:
+%    This code is used to compute the distance codingdiversity (dcd).
 % Parameter settings
 s_win = 5;            % s_win is the window size
 bin = 32;            % level is the number of gray levels
