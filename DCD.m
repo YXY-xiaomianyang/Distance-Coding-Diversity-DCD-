@@ -3,7 +3,7 @@
 % Parameter settings
 s_win = 5;            % s_win is the window size
 bin = 32;            % level is the number of gray levels
-length_win = s_win*s_win;
+
 %%
 % Output File Path
 destination = 'E:\application_test';
@@ -12,6 +12,7 @@ destination = 'E:\application_test';
 tic
 [im,geo] = readgeoraster('E:\application_test\plant\test\test_plant.dat');
 info = geotiffinfo('E:\application_test\plant\dcd_arrange\16_3_km_DCD_S.tif');
+length_win = s_win*s_win;
 a=floor(mean(im,3));
 b=max(a,[],'all');
 c=min(a,[],'all');
