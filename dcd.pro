@@ -5,6 +5,8 @@
 ; :Params:
 ;    s_win: s_win is the window size. This code only support s_win=3, 5, or 7.
 ;    bin: bin is the number of gray levels. 
+;    input_file: The location of the input file. Note  that the form of the input file should be .tif. 
+;    output_file: The location of the output file.
 ;
 ; :Keywords:
 ;    Simpson: the default is to compute the Shannon-Wiener index
