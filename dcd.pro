@@ -3,8 +3,8 @@
 ;    This code is used to compute the distance codingdiversity (dcd).
 ;
 ; :Params:
-;    s_win: s_win is the window size
-;    bin: bin is the number of gray levels
+;    s_win: s_win is the window size. This code only support s_win=3, 5, or 7.
+;    bin: bin is the number of gray levels. 
 ;
 ; :Keywords:
 ;    Simpson: the default is to compute the Shannon-Wiener index
@@ -62,13 +62,9 @@ function serpentine, data
 end
 
 ; Call the function to compute the dcd of the whole image
-pro dcd
-  s_win=5
-  bin=12
+pro dcd, s_win=s_win, bin=s_win, input_file, output_file
   length_win=s_win*s_win
-  fn_read=dialog_pickfile(title='data')
-  img=read_image(fn_read)
-  img = read_tiff('E:\application_test\cropland\test\test_crop.tif', GEOTIFF=GeoKeys)
+  img = read_tiff(input_file, GEOTIFF=GeoKeys)
   img=mean(img,dimension = 1)
   a=max(img)
   b=min(img)
@@ -93,9 +89,8 @@ pro dcd
     endfor
     
   endfor
-  
-  fn_write=dialog_pickfile(title='dcd_img')
-  write_image, fn_write,'TIFF',dcd_img
+
+  write_tiff, output_file, dcd_img, geotiff=GeoKeys, /float
  
 end
 
