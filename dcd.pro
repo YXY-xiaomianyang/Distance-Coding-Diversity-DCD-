@@ -77,7 +77,7 @@ pro dcd, s_win=s_win, bin=s_win, input_file, output_file
   help,n1,n2
   dcd_img=fltarr(n1,n2)
   half=(s_win-1)/2
-  help,half
+  ;help,half
   for i=half,n1-half-1 do begin
 
     for j=half,n2-half-1 do begin
@@ -87,7 +87,7 @@ pro dcd, s_win=s_win, bin=s_win, input_file, output_file
       CS=dcd_cal(serpentine(transpose(img[i-half:i+half,j-half:j+half])), length_win)
       CIRCLE_i=dcd_cal(circle(img[i-half:i+half,j-half:j+half],s_win),length_win)
       dcd_img[i,j]=(S+C+SS+CS+CIRCLE_i)/float(5)
-      print,dcd_img[i,j]
+      ;print,dcd_img[i,j]
     endfor
     
   endfor
