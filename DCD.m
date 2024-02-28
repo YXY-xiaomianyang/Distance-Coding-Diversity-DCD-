@@ -22,7 +22,7 @@ im = floor(a/((b-c)/bin));
 %% DCD calculating
 
 [n1,n2] = size(im);
-DCD = zeros(n1,n2);
+DCD_img = zeros(n1,n2);
 
 half = (s_win-1)/2;
 jintival = half+1;
@@ -36,13 +36,13 @@ parfor i = half+1:n1-half
         SS = DCD_SS(im(i-half:i+half,j-half:j+half),length_win,bin);
         CS = DCD_CS(im(i-half:i+half,j-half:j+half),length_win,bin);
         CA = DCD_circle_5(im(i-half:i+half,j-half:j+half),length_win,bin);
-        DCD(i,j) = mean([S C SS CS CA]);
+        DCD_img(i,j) = mean([S C SS CS CA]);
 
     end
 
 end
 
-geotiffwrite([destination,'\',num2str(bin),'_',num2str(s_win),'_test_DCD.tif'],DCD,geo,'GeoKeyDirectoryTag', info.GeoTIFFTags.GeoKeyDirectoryTag);
+geotiffwrite([destination,'\',num2str(bin),'_',num2str(s_win),'_test_DCD.tif'],DCD_img,geo,'GeoKeyDirectoryTag', info.GeoTIFFTags.GeoKeyDirectoryTag);
 
 toc
 
